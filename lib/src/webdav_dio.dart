@@ -88,8 +88,6 @@ class WdDio with DioMixin implements Dio {
       cancelToken: cancelToken,
     );
 
-    print(resp);
-
     if (resp.statusCode == 401) {
       String? w3AHeader = resp.headers.value('www-authenticate');
       String? lowerW3AHeader = w3AHeader?.toLowerCase();
@@ -475,10 +473,10 @@ class WdDio with DioMixin implements Dio {
     CancelToken? cancelToken,
   }) async {
     // fix auth error
-    var pResp = await this.wdOptions(self, path, cancelToken: cancelToken);
-    if (pResp.statusCode != 200) {
-      throw newResponseError(pResp);
-    }
+    // var pResp = await this.wdOptions(self, path, cancelToken: cancelToken);
+    // if (pResp.statusCode != 200) {
+    //   throw newResponseError(pResp);
+    // }
 
     // mkdir
     await this._createParent(self, path, cancelToken: cancelToken);
