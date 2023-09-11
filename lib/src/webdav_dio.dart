@@ -88,6 +88,8 @@ class WdDio with DioMixin implements Dio {
       cancelToken: cancelToken,
     );
 
+    print(resp);
+
     if (resp.statusCode == 401) {
       String? w3AHeader = resp.headers.value('www-authenticate');
       String? lowerW3AHeader = w3AHeader?.toLowerCase();
