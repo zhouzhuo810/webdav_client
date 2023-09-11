@@ -329,6 +329,10 @@ class WdDio with DioMixin implements Dio {
     if (contentEncoding != null) {
       compressed = ['gzip', 'deflate', 'compress'].contains(contentEncoding);
     }
+    print("compressed=$compressed");
+    (resp.headers).forEach((name, values) {
+      print('resp.header=${name}:${values}');
+    });
     if (compressed) {
       total = -1;
     } else {
