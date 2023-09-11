@@ -272,6 +272,7 @@ class WdDio with DioMixin implements Dio {
   }) async {
     // fix auth error
     var pResp = await this.wdOptions(self, path, cancelToken: cancelToken);
+    print(pResp);
     if (pResp.statusCode != 200) {
       throw newResponseError(pResp);
     }
